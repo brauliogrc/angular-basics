@@ -1,0 +1,24 @@
+<p>listado</p>
+
+<!-- el div solo de mostrara en caso de que el *ngIf sea true -->
+<div *ngIf = "heroeBorrado !== ''; else noBorrado">
+    <h3>Heroe borrado: <small> {{ heroeBorrado }} </small></h3>
+</div>
+<!-- para que tenga efecto el else de nuestra directiva *ngIf, debemos
+colocar una referencia local con el simbolo # y el nombre de nuestra
+referecnia local noBorrado. Las referecnias locales son del lado del template -->
+<ng-template #noBorrado>
+    <h3>No ha borrado nada</h3>
+</ng-template>
+
+<button (click)="borrarHeroe()">
+    Borrar
+</button>
+
+<!-- para un *ngFor, siempre debemos enviar un iterable -->
+<ul>
+    <li *ngFor = "let horoe of horoes; let i = index">
+       {{ i + 1}} - {{ horoe }} 
+    </li>
+</ul>
+
